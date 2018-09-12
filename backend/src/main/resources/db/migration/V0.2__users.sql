@@ -1,0 +1,42 @@
+INSERT INTO users (USERNAME, FULLNAME, DESCRIPTION, AVATAR_URL) VALUES
+
+('jan', 'Jan Kowalski', 'Uber administrator', '/avatars/jan.jpg'),
+('house', 'Gregory House', 'Lekarz zakładowy', '/avatars/house.jpg'),
+('janek', 'Janek Kowalski', 'Project Manager', '/avatars/janek.jpg'),
+('adam', 'Adam Mickiewicz', 'Wielkim poetą był', '/avatars/adam.jpg'),
+
+('user1', 'Dummy User 1', 'Very Important user created only for tests 1', '/avatars/user1.jpg'),
+('user2', 'Dummy User 2', 'Very Important user created only for tests 2', '/avatars/user2.jpg'),
+('user3', 'Dummy User 3', 'Very Important user created only for tests 3', '/avatars/user3.jpg'),
+('user4', 'Dummy User 4', 'Very Important user created only for tests 4', '/avatars/user4.jpg'),
+('user5', 'Dummy User 5', 'Very Important user created only for tests 5', '/avatars/user5.jpg'),
+('user6', 'Dummy User 6', 'Very Important user created only for tests 6', '/avatars/user6.jpg'),
+('user7', 'Dummy User 7', 'Very Important user created only for tests 7', '/avatars/user7.jpg'),
+('user8', 'Dummy User 8', 'Very Important user created only for tests 8', '/avatars/user8.jpg'),
+('user9', 'Dummy User 9', 'Very Important user created only for tests 9', '/avatars/user9.jpg'),
+('user10', 'Dummy User 10', 'Very Important user created only for tests 10', '/avatars/user10.jpg'),
+
+('user11', 'Dummy User 11', 'Very Important user created only for tests 11', '/avatars/user11.jpg'),
+('user12', 'Dummy User 12', 'Very Important user created only for tests 12', '/avatars/user12.jpg'),
+('user13', 'Dummy User 13', 'Very Important user created only for tests 13', '/avatars/user13.jpg'),
+('user14', 'Dummy User 14', 'Very Important user created only for tests 14', '/avatars/user14.jpg'),
+('user15', 'Dummy User 15', 'Very Important user created only for tests 15', '/avatars/user15.jpg'),
+('user16', 'Dummy User 16', 'Very Important user created only for tests 16', '/avatars/user16.jpg'),
+('user17', 'Dummy User 17', 'Very Important user created only for tests 17', '/avatars/user17.jpg'),
+('user18', 'Dummy User 18', 'Very Important user created only for tests 18', '/avatars/user18.jpg'),
+('user19', 'Dummy User 19', 'Very Important user created only for tests 19', '/avatars/user19.jpg'),
+('user20', 'Dummy User 20', 'Very Important user created only for tests 20', '/avatars/user20.jpg'),
+
+('user21', 'Dummy User 21', 'Very Important user created only for tests 21', '/avatars/user21.jpg'),
+('user22', 'Dummy User 22', 'Very Important user created only for tests 22', '/avatars/user22.jpg'),
+('user23', 'Dummy User 23', 'Very Important user created only for tests 23', '/avatars/user23.jpg'),
+('user24', 'Dummy User 24', 'Very Important user created only for tests 24', '/avatars/user24.jpg'),
+('user25', 'Dummy User 25', 'Very Important user created only for tests 25', '/avatars/user25.jpg'),
+('user26', 'Dummy User 26', 'Very Important user created only for tests 26', '/avatars/user26.jpg'),
+('user27', 'Dummy User 27', 'Very Important user created only for tests 27', '/avatars/user27.jpg'),
+('user28', 'Dummy User 28', 'Very Important user created only for tests 28', '/avatars/user28.jpg'),
+('user29', 'Dummy User 29', 'Very Important user created only for tests 29', '/avatars/user29.jpg'),
+('user30', 'Dummy User 30', 'Very Important user created only for tests 30', '/avatars/user30.jpg'),
+
+('user31', 'Dummy User 31', 'Very Important user created only for tests 31', '/avatars/user31.jpg'),
+('user32', 'Dummy User 32', 'Very Important user created only for tests 32', '/avatars/user32.jpg');

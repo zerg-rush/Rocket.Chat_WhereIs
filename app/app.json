@@ -1,0 +1,15 @@
+{
+    "id": "70ec78a7-fbab-457e-8c1b-6fd6f6b717aa",
+    "name": "Where Is",
+    "nameSlug": "whereis",
+    "description": "Rocket.Chat bot providing location data for specified user, IP or MAC address",
+    "version": "1.0.1",
+    "requiredApiVersion": "^0.9.13",
+    "author": {
+        "name": "Andrzej Szul",
+        "homepage": "https://www.ncdc.eu/career/hot/",
+        "support": "mailto:rocket.chat.ncdc@gmail.com"
+    },
+    "classFile": "WhereIsApp.ts",
+    "iconFile": "img/ncdc.png"
+}

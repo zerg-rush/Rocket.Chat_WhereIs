@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>WhereIs management console</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+    <style>
+        .navbar-nav {
+            font-size: large;
+        }
+        body {
+/*            background-image: url("/images/background.jpg");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;*/
+
+            background: url("/images/background.jpg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{/header :: header}">Header</div>
+<div class="container" style="margin-top: 60px;">
+    <!--<img src="/images/background.jpg"/>-->
+    <!--<p>Spring Security Thymeleaf tutorial</p>
+    <div sec:authorize="hasRole('USER')">Text visible to user.</div>
+    <div sec:authorize="hasRole('ADMIN')">Text visible to admin.</div>
+    <div sec:authorize="isAuthenticated()">Text visible only to authenticated users.</div>
+    Authenticated username:
+    <div sec:authentication="name"></div>
+    Authenticated user roles:
+        <div sec:authentication="principal.authorities"></div>-->
+    <div th:insert="~{/footer :: footer}">Rocket.Chat WhereIs bot management console</div>
+</div>
+</body>
+</html>

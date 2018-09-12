@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>WhereIs Location list</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+    <style>
+        .navbar-nav
+        {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{/header :: header}">Header</div>
+<div class="container" style="margin-top: 60px;">
+    <h1>Locations list</h1>
+    <div style="padding:0 20px">
+        <table class="table table-striped">
+            <tr>
+                <th>No</th>
+                <th>Index</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Device</th>
+                <th>S/N</th>
+                <th>Map</th>
+                <th>Actions</th>
+            </tr>
+            <tr th:each="location,iterStat : ${locations}">
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${location.index}"></td>
+                <td th:text="${location.name}"></td>
+                <td th:text="${location.description}"></td>
+                <td th:text="${location.type}"></td>
+                <td th:text="${location.device}"></td>
+                <td th:text="${location.sn}"></td>
+                <td>
+                    <img th:src="${(location.mapUrl != null && !#strings.isEmpty(location.mapUrl)) ? location.mapUrl : '/images/emptyMap.png'}"
+                         style="width: 240px"/>
+                </td>
+                <td>
+                    <a th:href="@{/editLocation/{id}(id=${location.index})}" class="btn btn-primary btn-xs">Edit</a>
+                    <a th:href="@{/delete/{id}(id=${location.index})}" class="btn btn-danger btn-xs">Delete</a>
+                    <a th:unless="${location.mapUrl != null && !#strings.isEmpty(location.mapUrl)}"
+                       th:href="@{/uploadMap/{id}(id=${location.index})}" class="btn btn-primary btn-xs">Add
+                        Map</a>
+                    <a th:if="${location.mapUrl != null && !#strings.isEmpty(location.mapUrl)}"
+                       th:href="@{/deleteMap/{id}(id=${location.index})}" class="btn btn-primary btn-xs">Delete
+                        Map</a>
+                </td>
+            </tr>
+        </table>
+        <a href="/addLocation.html" class="btn btn-primary">Add Location</a>
+    </div>
+    <div th:insert="~{/footer :: footer}">Rocket.Chat WhereIs bot management console</div>
+</div>
+</body>
+</html>

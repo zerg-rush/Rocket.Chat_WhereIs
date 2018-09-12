@@ -1,0 +1,13 @@
+{
+  "WhereIs_Command_Description": "This command returns current location of specified user, IP and MAC address",
+  "WhereIs_Command_Example": "/whereis jan",
+
+  "WhereIs_Bot": "The bot user account for Where Is",
+  "WhereIs_Bot_Description": "Create a bot user and type his username here",
+
+  "WhereIs_Backend_Service_URL": "URL for WhereIs backend service",
+  "WhereIs_Backend_Service_URL_Description": "URL for REST API provided by WhereIs backend service",
+
+  "WhereIs_Backend_Service_Token": "Token value for WhereIs backend service",
+  "WhereIs_Backend_Service_Token_Description": "Token value which will be used to secure connection between Rocket.Chat and WhereIs backend service"
+}

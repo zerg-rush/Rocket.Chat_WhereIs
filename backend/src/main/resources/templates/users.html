@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>WhereIs Users list</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+    <style>
+        .navbar-nav
+        {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{/header :: header}">Header</div>
+<div class="container" style="margin-top: 60px;">
+<!--    <div class="col-md-4">
+        <h1>Users list</h1>
+    </div>-->
+
+    <h1>Users list</h1>
+<!--    <div class="col-md-4">
+        <h3 th:inline="text">WhereIs management console</h3>
+    </div>
+    <div class="col-md-4" style="padding:20px 0">
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out" class="btn btn-danger"/>
+        </form>
+    </div>-->
+
+    <div style="padding:0 20px">
+        <table class="table table-striped">
+            <tr>
+                <th>No</th>
+                <th>Username</th>
+                <th>Full name</th>
+                <th>Description</th>
+                <th>Avatar</th>
+                <th>Actions</th>
+            </tr>
+            <tr th:each="user,iterStat : ${users}">
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.fullname}"></td>
+                <td th:text="${user.description}"></td>
+                <td>
+                    <img th:src="${(user.avatarUrl != null && !#strings.isEmpty(user.avatarUrl)) ? user.avatarUrl : '/images/emptyAvatar.png'}"
+                         style="width: 120px"/>
+                </td>
+                <td>
+                    <a th:href="@{/editUser/{id}(id=${user.username})}" class="btn btn-primary btn-xs">Edit</a>
+
+                    <a th:href="@{/delete/{id}(id=${user.username})}" class="btn btn-danger btn-xs">Delete</a>
+
+                    <a th:unless="${user.avatarUrl != null && !#strings.isEmpty(user.avatarUrl)}"
+                       th:href="@{/addAvatar/{id}(id=${user.avatarUrl})}"
+                       class="btn btn-primary btn-xs">Add Avatar</a>
+
+                    <a th:if="${user.avatarUrl != null && !#strings.isEmpty(user.avatarUrl)}"
+                       th:href="@{/deleteAvatar/{id}(id=${user.username})}"
+                       class="btn btn-primary btn-xs">Delete Avatar</a>
+                </td>
+            </tr>
+        </table>
+        <a href="/addUser.html" class="btn btn-primary">Add User</a>
+    </div>
+    <div th:insert="~{/footer :: footer}">Rocket.Chat WhereIs bot management console</div>
+</div>
+</body>
+</html>

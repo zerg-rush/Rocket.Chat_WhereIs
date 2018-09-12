@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="warn">
+    <properties>
+        <property name="basePath" value="./logs"/>
+        <property name="file_base_name" value="whereis"/>
+        <property name="archive" value="archive"/>
+        <property name="logPattern"
+                  value="%highlight{%-5level}{STYLE=Logback} [%d{yyyy-MM-dd HH:mm:ss}, %thread] %logger{35} : %msg%n %throwable{suffix(\n!)}{separator()}"/>
+    </properties>
+
+    <appenders>
+        <rollingFile name="fileLogger" fileName="${basePath}/${file_base_name}.log"
+                     filePattern="${basePath}/${archive}/${file_base_name}_%d{yyyy-MM-dd}.%i.log">
+            <patternLayout pattern="${logPattern}"/>
+            <policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="1 MB"/>
+            </policies>
+        </rollingFile>
+        <console name="console" target="SYSTEM_OUT">
+            <patternLayout pattern="${logPattern}" disableAnsi="false"/>
+        </console>
+    </appenders>
+
+    <loggers>
+        <root level="info" additivity="true">
+            <appender-ref ref="console"/>
+            <appender-ref ref="fileLogger"/>
+        </root>
+    </loggers>
+</configuration>

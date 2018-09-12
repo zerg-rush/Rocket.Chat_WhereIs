@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${pageTitle}">Edit location data</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="stylesheet" th:href="@{../css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${pageTitle}">Edit location data</h1>
+    <div class="col-md-4">
+        <form th:object="${location}" th:action="@{../save}" action="#" method="post">
+            <input type="hidden" th:field="*{index}" class="form-control"/>
+
+            <!--            <label>Index</label>
+                        <input type="text" th:field="*{index}" class="form-control"
+                               placeholder="Index"/>
+                        <div style="clear: both; display: block; height: 10px;"></div>-->
+
+            <label>Name</label>
+            <input type="text" th:field="*{name}" class="form-control"
+                   placeholder="Name"/>
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label>Description</label>
+            <input type="text" th:field="*{description}" class="form-control"
+                   placeholder="Description"/>
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label>Type</label>
+            <br>
+            <!--<input type="text" th:field="*{type}" class="form-control"
+                   placeholder="Type"/>-->
+            <select th:field="*{type}">
+                <option th:value="'LAN'" th:text="LAN"></option>
+                <option th:value="'WIFI'" th:text="WIFI"></option>
+            </select>
+
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label>Device</label>
+            <input type="text" th:field="*{device}" class="form-control"
+                   placeholder="Device"/>
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label>Serial number</label>
+            <input type="text" th:field="*{sn}" class="form-control"
+                   placeholder="S/N"/>
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label>Map URL</label>
+            <input type="text" th:field="*{mapUrl}" class="form-control"
+                   placeholder="Map"/>
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <img th:src="${mapUrl}"
+                 style="width: 480px; height: 270px"/>
+            <br>
+
+            <input type="submit" class="btn btn-primary" value="Save"></input>
+            <a href="/locations.html" class="btn btn-success"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Back to List</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>

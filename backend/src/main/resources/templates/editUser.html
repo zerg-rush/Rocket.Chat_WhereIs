@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${pageTitle}">Edit user data</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="stylesheet" th:href="@{../css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${pageTitle}">Edit user data</h1>
+    <div class="col-md-4">
+        <form th:object="${user}" th:action="@{../save}" action="#" method="post">
+            <input type="hidden" th:field="*{username}" class="form-control"/>
+
+            <!--            <label>Index</label>
+                        <input type="text" th:field="*{username}" class="form-control"
+                               placeholder="Username"/>
+                        <div style="clear: both; display: block; height: 10px;"></div>-->
+
+            <label>Full name</label>
+            <input type="text" th:field="*{fullname}" class="form-control"
+                   placeholder="Full name"/>
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label>Description</label>
+            <input type="text" th:field="*{description}" class="form-control"
+                   placeholder="Description"/>
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label>Avatar URL</label>
+            <input type="text" th:field="*{avatarUrl}" class="form-control"
+                   placeholder="Avatar"/>
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <br>
+
+            <img th:src="${avatarUrl}"
+                 style="width: 320px; height: 320px"/>
+            <br>
+
+            <input type="submit" class="btn btn-primary" value="Save"></input>
+            <a href="/users.html" class="btn btn-success"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Back to List</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>

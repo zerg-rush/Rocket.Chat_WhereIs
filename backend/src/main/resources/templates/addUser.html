@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add new user</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container">
+    <h1>New user</h1>
+    <div class="col-md-4">
+        <form th:object="${user}" th:action="@{save}" action="#" method="post">
+<!--            <input type="hidden" th:field="*{username}" class="form-control"/>-->
+
+            <label>Username</label>
+            <input type="text" th:field="*{username}" class="form-control"
+                   placeholder="Username"/>
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label>Full name</label>
+            <input type="text" th:field="*{fullname}" class="form-control"
+                   placeholder="Full name"/>
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label>Description</label>
+            <input type="text" th:field="*{description}" class="form-control"
+                   placeholder="Description"/>
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label>Avatar</label>
+            <input type="text" th:field="*{avatarUrl}" class="form-control"
+                   placeholder="Avatar"/>
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <img th:src="${avatarUrl}"
+                 style="width: 480px; height: 270px"/>
+            <br>
+
+            <input type="submit" class="btn btn-primary" value="Save"></input>
+            <a href="/users.html" class="btn btn-success"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Back to List</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>
