@@ -1,4 +1,4 @@
-# Rocket.Chat WhereIs bot
+﻿# Rocket.Chat WhereIs bot
 ## [NCDC House of Talents 2018](https://www.ncdc.eu/career/hot/house-of-talents-3/)
 
 ![House of Talents](https://www.ncdc.eu/wp-content/themes/ncdc/img/HoT-logo.png)
