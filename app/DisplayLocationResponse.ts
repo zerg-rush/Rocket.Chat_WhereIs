@@ -1,7 +1,7 @@
-import {IModify, IRead} from '@rocket.chat/apps-ts-definition/accessors';
+import {IModify, IRead} from '@rocket.chat/apps-engine/definition/accessors';
 
-import {SlashCommandContext} from '@rocket.chat/apps-ts-definition/slashcommands';
-import {IMessageAttachment} from "@rocket.chat/apps-ts-definition/messages";
+import {SlashCommandContext} from '@rocket.chat/apps-engine/definition/slashcommands';
+import {IMessageAttachment} from '@rocket.chat/apps-engine/definition/messages';
 
 export async function displayLocationResponse(
     message: { text: string, attachments: Array<IMessageAttachment>, icon_emoji: string },
@@ -20,5 +20,5 @@ export async function displayLocationResponse(
         .setText(message.text)
         .setAttachments(message.attachments);
 
-    await modify.getNotifer().notifyUser(context.getSender(), builder.getMessage());
+    await modify.getNotifier().notifyUser(context.getSender(), builder.getMessage());
 }

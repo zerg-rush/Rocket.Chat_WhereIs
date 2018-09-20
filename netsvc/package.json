@@ -1,0 +1,6 @@
+{
+    "dependencies": {
+        "json-server": "^0.14.0",
+        "moment": "^2.22.2"
+    }
+}

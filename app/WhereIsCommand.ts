@@ -1,5 +1,5 @@
-import {HttpStatusCode, IHttp, IModify, IRead} from '@rocket.chat/apps-ts-definition/accessors';
-import {ISlashCommand, SlashCommandContext} from '@rocket.chat/apps-ts-definition/slashcommands';
+import {HttpStatusCode, IHttp, IModify, IRead} from '@rocket.chat/apps-engine/definition/accessors';
+import {ISlashCommand, SlashCommandContext} from '@rocket.chat/apps-engine/definition/slashcommands';
 
 import {WhereIsApp} from './WhereIsApp';
 import {displayLocationResponse} from './DisplayLocationResponse';
@@ -109,7 +109,7 @@ export class WhereIsCommand implements ISlashCommand {
             .setUsernameAlias('Where Is')
             .setAvatarUrl(botAvatarUrl)
             .setText(message);
-        await modify.getNotifer().notifyUser(sender, builder.getMessage());
+        await modify.getNotifier().notifyUser(sender, builder.getMessage());
     }
 
     public async executor(context: SlashCommandContext, read: IRead, modify: IModify, http: IHttp): Promise<void> {

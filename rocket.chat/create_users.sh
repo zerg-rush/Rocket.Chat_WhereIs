@@ -26,7 +26,7 @@ login() {
 
 createSingleUser() {
 	echo Creating user$1
-	curl -H "X-Auth-Token: $authToken" -H "X-User-Id: $userId" -H "Content-type:application/json" http://docker:3000/api/v1/users.create -d '{"name": "Demo User '$1'", "email": "rocket.chat.ncdc+user'$1'@gmail.com", "password": "123user'$1'", "username": "user'$1'", "customFields": { "twitter": "@userstwitter" } }'
+	curl -H "X-Auth-Token: $authToken" -H "X-User-Id: $userId" -H "Content-type:application/json" $rocketchat_url/api/v1/users.create -d '{"name": "Demo User '$1'", "email": "rocket.chat.ncdc+user'$1'@gmail.com", "password": "123user'$1'", "username": "user'$1'", "customFields": { "twitter": "@userstwitter" } }'
 	echo
 }
 

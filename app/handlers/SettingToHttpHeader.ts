@@ -1,4 +1,4 @@
-import {IHttpPreRequestHandler, IHttpRequest, IPersistence, IRead} from '@rocket.chat/apps-ts-definition/accessors';
+import {IHttpPreRequestHandler, IHttpRequest, IPersistence, IRead} from '@rocket.chat/apps-engine/definition/accessors';
 
 export class SettingToHttpHeader implements IHttpPreRequestHandler {
     constructor(private readonly settingKey: string, private readonly header: string) {

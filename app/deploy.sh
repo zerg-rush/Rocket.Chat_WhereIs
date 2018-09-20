@@ -1,8 +1,8 @@
 #!/bin/bash
 
-DATE=$(date "+%Y-%m-%d %H;%M;%S")
+# DATE=$(date "+%Y-%m-%d %H;%M;%S")
 
-echo $DATE >> /mnt/c/DATA/DEV/Projects/NCDC/deploy.log
+# echo $DATE >> /mnt/c/DATA/DEV/Projects/NCDC/deploy.log
 
 if [ $1 == remote ]
 then
@@ -51,5 +51,9 @@ fi
 
 rc-apps deploy --url=$HOST --username=$USER --password=$PASS $MODE
 
-LAST_FILE=$(ls --format single-column ./dist/ | tail -n 1)
-cp ./dist/$LAST_FILE "/mnt/c/DATA/DEV/Projects/NCDC/rwb.deploy/$LAST_FILE-$TARGET-$DATE" 2>/dev/null
+# if [ -d "./dist" ]; then
+#    LAST_FILE=$(ls --format single-column ./dist/ | tail -n 1)
+#    cp ./dist/$LAST_FILE "/mnt/c/DATA/DEV/Projects/NCDC/rwb.deploy/$LAST_FILE-$TARGET-$DATE" 2>/dev/null
+# fi
+
+

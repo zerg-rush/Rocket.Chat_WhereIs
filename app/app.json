@@ -3,8 +3,8 @@
     "name": "Where Is",
     "nameSlug": "whereis",
     "description": "Rocket.Chat bot providing location data for specified user, IP or MAC address",
-    "version": "1.0.1",
-    "requiredApiVersion": "^0.9.13",
+    "version": "2.0.0",
+    "requiredApiVersion": "1.0.0",
     "author": {
         "name": "Andrzej Szul",
         "homepage": "https://www.ncdc.eu/career/hot/",

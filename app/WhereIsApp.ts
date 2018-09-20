@@ -1,9 +1,9 @@
-import {App} from '@rocket.chat/apps-ts-definition/App';
-import {IAppInfo} from '@rocket.chat/apps-ts-definition/metadata';
+import { App } from '@rocket.chat/apps-engine/definition/App';
+import {IAppInfo} from '@rocket.chat/apps-engine/definition/metadata';
 
-import {IConfigurationExtend, IEnvironmentRead, ILogger} from '@rocket.chat/apps-ts-definition/accessors';
+import {IConfigurationExtend, IEnvironmentRead, ILogger} from '@rocket.chat/apps-engine/definition/accessors';
 
-import {SettingType} from '@rocket.chat/apps-ts-definition/settings';
+import {SettingType} from '@rocket.chat/apps-engine/definition/settings';
 
 import {WhereIsCommand} from './WhereIsCommand';
 import {SettingToHttpHeader} from './handlers/SettingToHttpHeader';

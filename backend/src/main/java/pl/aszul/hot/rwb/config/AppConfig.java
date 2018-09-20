@@ -25,7 +25,7 @@ public class AppConfig {
 
     public static final String NETWORK_SERVICE_URL = "http://whereis-netsvc:8081/whereis/";
 
-    public static final String BACKEND_HOST = "http://localhost:8080/";
+    public static final String BACKEND_HOST = "http://whereis-backend:8080/";
     public static final String USER_AVATARS_URL = BACKEND_HOST + "avatars/";
     public static final String LOCATION_MAPS_URL = BACKEND_HOST + "maps/";
     public static final String IMAGES_URL = BACKEND_HOST + "images/";

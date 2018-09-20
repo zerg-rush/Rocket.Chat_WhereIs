@@ -6,7 +6,7 @@
 ## Rocket.Chat WhereIs bot providing location data for specific user, and devices with specified IP and MAC address
 
 ## Project modules structure
-All components of applications are contained in one multi module IntelliJ project with following packages:
+All components of application are combined in one multi module IntelliJ project with following modules/packages:
 - app - WhereIs plugin compliant with Rocket.Chat Apps specification,
 - backend - backend service app providing translation level, persistence and business logic for whole application,
 - netsvc - low level network service providing actual real time data from network infrastructure devices,
@@ -14,8 +14,8 @@ All components of applications are contained in one multi module IntelliJ projec
 
 ## Used technological stack (languages, technologies and tools):
 
-- [Rocket.Chat 0.69-develop](https://github.com/RocketChat/Rocket.Chat),
-- [Docker CE 18.06.01](https://github.com/docker/docker-ce),
+- [Rocket.Chat 0.70-develop](https://github.com/RocketChat/Rocket.Chat),
+- [Docker CE 18.09.01](https://github.com/docker/docker-ce),
 - [Oracle Java JDK 10.0.2](http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html),
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript),
 - [TypeScript 2.9.2](https://www.typescriptlang.org/),
@@ -60,7 +60,7 @@ See following examples:
 ```
 
 
-help mode with deatils about bot usage:
+How to get help with details about bot usage:
 
 ![whereis help](images/whereis_help.gif)
 
@@ -171,6 +171,7 @@ Debug logs are available in separatelly on Rocket.Chat App management (created b
 
 ![whereis administration logs 2nd](images/whereis_administration_logs_2nd.png)
 
+
 and /logs/ folder (created by backend service):
 
 ![whereis backend logs](images/whereis_backend_logs.png)
@@ -272,39 +273,105 @@ public enum WhereIsMode {
 git clone https://github.com/zerg-rush/Rocket.Chat_WhereIs.git
 ```
 
-2. Install node.js dependencies in /app/ and /netsvc/ folders
+2. Install node.js dependencies in app and netsvc folders
 ```
-cd /app/
-npm install @rocket.chat/apps
+sudo apt install curl jq -y
+sudo npm install -g @rocket.chat/apps-cli
+cd app/
+npm install
 cd ..
-TBD
-cd /netsvc/
-npm install json-server
+cd netsvc/
+npm install
 cd ..
 ```
 
-3. Update URLs for backend service and low level network service accordingly to your infrastructure
+3. Update URLs for backend service and low level network service accordingly to your network infrastructure:
 
-4. Install WhereIs bot App (aka plugin) on Rocket.Chat server
+a. edit file app\WhereIsApp.ts:
 ```
-./deploy.sh RocketChat_host install
+    packageValue: 'http://whereis-backend:8080/api/whereis',
 ```
 
-5. start RocketChat.Chat server in Docker container:
+b. edit file backend\src\main\java\pl\aszul\hot\rwb\config\AppConfig.java:
+```
+    public static final String ROCKET_CHAT_URL = "http://192.168.99.100:3000/";
+    public static final String NETWORK_SERVICE_URL = "http://whereis-netsvc:8081/whereis/";
+    public static final String BACKEND_HOST = "http://localhost:8080/";
+```
+
+c. edit file rocket.chat\create_users.sh:
+```
+rocketchat_url=http://192.168.99.100:3000
+```
+
+d. edit file app\deploy.sh:
+```
+HOST=http://192.168.99.100:3000/
+```    
+    
+4. start RocketChat.Chat server in Docker container:
 ```
 cd rocket.chat
 docker-compose up
 ```
-6. create dummy users on Rocket.Chat server
+
+it should download all necessary containers:
+
+![whereis docker compose up 1](images/whereis_docker_compose_up_1.png)
+
+
+and start Rocket.Chat server:
+
+![whereis docker compose up 2](images/whereis_docker_compose_up_2.png)
+
+
+5. got to local Rocket.Chat webpage (http://192.168.99.100:3000/) and complete first run configuration procedure:
+
+![whereis rocket.chat first run](images/whereis_rocket.chat_first_run.png)
+
+![whereis rocket.chat first run finish](images/whereis_rocket.chat_first_run_finish.png)
+
+
+6. create new roles (whereis, whereis-details, whereis-admin) using Rocket.Chat administration panel (options \ Administration \ Permissions \ New Role):
+
+![whereis rocket.chat permissions](images/whereis_rocket.chat_permissions.png)
+
+![whereis rocket.chat permissions_new_role](images/whereis_rocket.chat_permissions_new_role.png)
+
+
+7. manually create few Rocket.Chat users for test and assign them some whereis roles:
+
+![whereis rocket.chat permissions_add_role](images/whereis_rocket.chat_permissions_add_role.png)
+
+
+8. create dummy users on Rocket.Chat server (if necessary, use chmod to add executable attribute to script file):
 ```
 cd rocket.chat
 ./create_users.sh
 ```
 
+![whereis_rocket.chat_added_users](images/whereis_rocket.chat_added_users.png)
+
+
+9. enable apps support in Rocket.Chat (options \ Administration \ Apps \ Enable):
+
+![whereis_rocket.chat_enable_apps](images/whereis_rocket.chat_enable_apps.png)
+
+7. install WhereIs bot App (aka plugin) on Rocket.Chat server (if necessary, use chmod to add executable attribute to script file):
+```
+cd app
+./deploy.sh docker install
+```
+
+
+8. activate WhereIs bot App after installation (options \ Administration \ Apps \ Installed \ WhereIs \ Activate):
+
+![whereis_rocket.chat_app_activation](images/whereis_rocket.chat_app_activation.png)
+
 
 ## Starting service in development environment:
 
-1.start RocketChat.Chat server in Docker container:
+1. start RocketChat.Chat server in Docker container:
 ```
 cd rocket.chat
 docker-compose up
@@ -312,7 +379,8 @@ docker-compose up
 
 ![whereis docker ready](images/whereis_docker_ready.png)
 
-2.deploy current version of WhereIs bot to Rocket.Chat server:
+
+2. deploy current version of WhereIs bot to Rocket.Chat server:
 ```
 cd app
 ./deploy.sh docker update
@@ -320,23 +388,27 @@ cd app
 
 ![whereis app deploy](images/whereis_app_deploy.png)
 
-3.fire up backend service:
+
+3. fire up backend service (set below environment variables if you need override default locations of maps and avatars files):
 ```
+export LOCATION_MAPS_FOLDER=/home/rocket/whereis/maps
+export USER_AVATARS_FOLDER=/home/rocket/whereis/avatars
 cd backend
-mvnw spring-boot:run
+mvn spring-boot:run
 ```
 
 ![whereis backend startup](images/whereis_backend_startup.png)
 
-4.fire up netsvc low level network mockup service:
+
+4. fire up netsvc low level network mockup service (if necessary, use chmod to add executable attribute to script file):
 ```
 cd netsvc
 ./start_netsvc.sh
 ```
 
-5.Rocket.Chat should be available at address http://docker:3000/
+5. Rocket.Chat should be available at address http://docker_url:3000/
 
-6.WhereIs managment web console should be available at address http://localhost:8080/
+6. WhereIs management web console should be available at address http://backend_url:8080/
 
 ## Provided developer scripts:
 
