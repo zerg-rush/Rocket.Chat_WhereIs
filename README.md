@@ -23,7 +23,7 @@ All components of application are combined in one multi module IntelliJ project 
 - [npm 6.4.1](https://www.npmjs.com/),
 - [Lombok 1.18.2](https://projectlombok.org/),
 - [Spring 5.0.8](https://spring.io/),
-- [Spring Boot 2.0.4](https://spring.io/projects/spring-boot),
+- [Spring Boot 2.0.5](https://spring.io/projects/spring-boot),
 - [Hibernate 5.2.17](http://hibernate.org/),
 - [WSL (Windows Subsystem Linux @ Windows 10)](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux),
 - [Ubuntu 18.04](https://www.ubuntu.com/),
