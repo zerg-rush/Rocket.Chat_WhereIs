@@ -1,4 +1,4 @@
-﻿# Rocket.Chat WhereIs bot
+# Rocket.Chat WhereIs bot
 ## [NCDC House of Talents 2018](https://www.ncdc.eu/career/hot/house-of-talents-3/)
 
 ![House of Talents](https://www.ncdc.eu/wp-content/themes/ncdc/img/HoT-logo.png)
@@ -19,7 +19,7 @@ All components of application are combined in one multi module IntelliJ project 
 - [Oracle Java JDK 10.0.2](http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html),
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript),
 - [TypeScript 2.9.2](https://www.typescriptlang.org/),
-- [node.js 10.10.0](https://nodejs.org/en/),
+- [node.js 10.11.0](https://nodejs.org/en/),
 - [npm 6.4.1](https://www.npmjs.com/),
 - [Lombok 1.18.2](https://projectlombok.org/),
 - [Spring 5.0.8](https://spring.io/),
@@ -275,12 +275,15 @@ git clone https://github.com/zerg-rush/Rocket.Chat_WhereIs.git
 
 2. Install node.js dependencies in app and netsvc folders
 ```
-sudo apt install curl jq -y
+sudo apt install curl jq maven npm -y
+sudo npm install -g n
+sudo n latest
+sudo npm install -g npm
 sudo npm install -g @rocket.chat/apps-cli
-cd app/
+cd app
 npm install
 cd ..
-cd netsvc/
+cd netsvc
 npm install
 cd ..
 ```
